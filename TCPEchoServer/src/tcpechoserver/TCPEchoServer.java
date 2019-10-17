@@ -49,11 +49,14 @@ public class TCPEchoServer
          System.out.println("Equation received: " + message);
         //[-+*/]
         String[] equation = message.split("[-+*/]");
-       int num1 =Integer.parseInt(equation[0]);
-       int num2 =Integer.parseInt(equation[1]);
-       String answer ="";
+       double num1 =Double.parseDouble(equation[0]);
+       double num2 =Double.parseDouble(equation[1]);
        
-       int total =0;
+       
+       String answer ="";
+      
+       
+       double total =0;
        if(message.contains("-")){
            total=num1-num2;
            answer=num1+"-"+num2+"="+total;
@@ -91,6 +94,7 @@ public class TCPEchoServer
           
          
       }	
+      
        else{
                 out.println("Error, input not valid!");
                 message = in.readLine();
