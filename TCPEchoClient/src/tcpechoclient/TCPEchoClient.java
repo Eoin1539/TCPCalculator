@@ -55,10 +55,10 @@ public class TCPEchoClient
     {
         try 
         {
-            
-            System.out.println("\n* Closing connection... *");
+            System.out.println("STOP command sent, terminating programme");
+            System.out.println("* Closing connection... *");
             link.close();
-            System.exit(1);
+            System.exit(0);
 	}catch(IOException e)
         {
             System.out.println("Unable to disconnect!");

@@ -43,7 +43,7 @@ public class TCPEchoServer
       while (!message.equals("STOP")) 
       {
           
-        if(message.matches(".*\\d.*")&& message.matches(".*[-+/*].*")){
+        if (message.matches(".*[-+/*].*")&& message.matches(".*\\d.*")){
           
           
          System.out.println("Equation received: " + message);
