@@ -43,7 +43,7 @@ public class TCPEchoServer
       while (!message.equals("STOP")) 
       {
           
-        if (message.matches(".*[-+/*].*")&& message.matches(".*\\d.*")){
+        if (message.matches("[0-9]+")&& message.matches("[-+*/]")){
           
           
          System.out.println("Equation received: " + message);
@@ -51,12 +51,12 @@ public class TCPEchoServer
         String[] equation = message.split("[-+*/]");
        double num1 =Double.parseDouble(equation[0]);
        double num2 =Double.parseDouble(equation[1]);
+       String check1 = equation[0];
+       String check2 = equation[1];
+        String answer ="";
+         double total =0;
+       if(check1.equals("[0-9]+")&&check2.equals("[0-9]+")){
        
-       
-       String answer ="";
-      
-       
-       double total =0;
        if(message.contains("-")){
            total=num1-num2;
            answer=num1+"-"+num2+"="+total;
@@ -93,8 +93,13 @@ public class TCPEchoServer
         
           
          
-      }	
-      
+      	
+        }
+        else{
+            out.println("Error, input not valid!");
+                message = in.readLine();
+            }
+        }
        else{
                 out.println("Error, input not valid!");
                 message = in.readLine();
